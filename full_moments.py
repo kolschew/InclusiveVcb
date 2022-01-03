@@ -12,7 +12,7 @@ import full_nlo as fnlo
 # Class contains the moments in the kinetic scheme with NLO-correction. 
 # The value for mu_s and mu0 is internally fixed in init.
 
-class TheoryPrediction:
+class InclusiveVcb:
     def __init__(self, mu0=2, mus=tpar.mbkin, muW=1):
 
         self.mus = mus
@@ -20,12 +20,12 @@ class TheoryPrediction:
         self.muW = muW
 
         self.hbar = 6.58212e-25
-        self.tauB = (1.519 + 1.638)*0.5e-12
+        self.tauB = (1.519 + 1.638) * 0.5e-12
         self.api4 = tpar.as_4(self.mus)/np.pi
 
-# ----------------------------------------------------------------------------------------------------
-# Functions for the total rate in kinetic and MS scheme.
-# ----------------------------------------------------------------------------------------------------
+    # ---------------------------------------------------------------------------------
+    # Functions for the total rate in kinetic and MS scheme.
+    # ---------------------------------------------------------------------------------
 
     def total_rate_kin(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         tot_kin = ( tpar.Gamma_0(mbkin, Vcb)

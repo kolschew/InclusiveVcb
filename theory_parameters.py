@@ -1,4 +1,5 @@
 import numpy as np
+from dataclasses import dataclass, field
 import rundec
 
 # -------------------------------------------------------------------------------------------------------
@@ -53,3 +54,60 @@ def as_4(mu):
     as_res = (crd.AlphasExact(crd.DecAsDownSI(crd.AlphasExact(asmZ, mZ, 2 * mbMS, 5, 4),
                                               mbMS, 2 * mbMS, 4, 4), 2 * mbMS, mu, 4, 4))
     return as_res
+
+
+@dataclass
+class VcbData:
+    """Class holds all parameters and physical constants for inclusive Vcb."""
+
+    # Physical constants
+    G_F: float = field(default=1.166378e-5, init=False)
+    Vcb_pdg: float = field(default=0.0422, init=False)
+    A_ew: float = field(default=1.014, init=False)
+    hbar: float = field(default=6.58212e-25, init=False)
+    tauB: float = field(default=(1.519 + 1.638) * 0.5e-12, init=False)
+
+    # Default masses in OS, MS and kinetic scheme
+    mbOS: float = 4.7
+    mcOS: float = 1.3
+    mbkin: float = 4.565
+    mckin: float = 1.130
+    mbMS: float = 4.198
+    mcMS_3: float = 0.993
+    mcMS_2: float = 1.099
+
+    # Scale for a_s
+    mus: float = 4.565
+
+    def __post_init__(self):
+        self.api4 = self._run_api(self.mus) / (4 * np.pi)
+
+    def gamma_0(self, mb, vcb):
+        """Prefactor of the total rate.
+
+        Args:
+            mb: mass of the b-quark in respective scheme
+            vcb: value for CKM-element V_cb
+        """
+
+        res = self.A_ew * self.G_F ** 2 * vcb ** 2 * mb ** 5 / (192 * np.pi ** 3)
+        return res
+
+    @staticmethod
+    def _run_api(scale):
+        """Runs a_s down to the desired scale at 4 loops with n_f = 4 by using rundec.
+
+        Args:
+            scale: scale at which a_s is evaluated
+        """
+
+        # Define parameters for running a_s #
+        _asmZ = 0.1179
+        _mZ = 91.1876
+        _mbMS = 4.198
+
+        # Initialize rundec and run a_s. n_f = 4 #
+        crd = rundec.CRunDec()
+        as_res = (crd.AlphasExact(crd.DecAsDownSI(crd.AlphasExact(_asmZ, _mZ, 2 * _mbMS, 5, 4),
+                                                  _mbMS, 2 * _mbMS, 4, 4), 2 * _mbMS, scale, 4, 4))
+        return as_res
