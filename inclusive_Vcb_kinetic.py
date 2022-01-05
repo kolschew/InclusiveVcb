@@ -7,6 +7,7 @@ from full_nlo import *
 
 
 class InclusiveVcb(AbstractInclusiveVcb):
+    """Total Rate and first four q2-moments in the kinetic scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         tot_kin = (self.data.tauB / self.data.hbar * self.data.gamma_0(mbkin, Vcb) *
@@ -40,6 +41,7 @@ class InclusiveVcb(AbstractInclusiveVcb):
 
 
 class InclusiveVcbCentralized(AbstractInclusiveVcb):
+    """Total Rate and first four centralized q2-moments in the kinetic scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         tot_kin = (self.data.tauB / self.data.hbar * self.data.gamma_0(mbkin, Vcb) *
