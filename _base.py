@@ -27,3 +27,7 @@ class AbstractInclusiveVcb(abc.ABC):
     @abc.abstractmethod
     def q2_moment_4(self, q_cut, mb, mc, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         pass
+
+    @abc.abstractmethod
+    def covariance_matrix(self, cuts, shifts, multi, decorr):
+        pass

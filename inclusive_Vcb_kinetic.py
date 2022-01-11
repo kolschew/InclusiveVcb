@@ -4,6 +4,7 @@ from moments.total_rates import total_rate_kin
 from moments.q2_moments_kinetic import *
 from moments.central_moments_kinetic import *
 from _full_nlo import *
+import covariance_matrix as cm
 
 
 class InclusiveVcb(AbstractInclusiveVcb):
@@ -39,6 +40,13 @@ class InclusiveVcb(AbstractInclusiveVcb):
                + self.data.api4 * nlo_4(q_cut, mbkin, mckin))
         return qm4
 
+    def covariance_matrix(self, cuts, shifts, multi=1, decorr=None):
+        mat = cm.CovarianceMatrix(cuts, self.data.default, shifts,
+                                  scheme='kin', cent=False,
+                                  multi=multi, decorr=decorr
+                                  ).summed_covariance()
+        return mat
+
 
 class InclusiveVcbCentralized(AbstractInclusiveVcb):
     """Total Rate and first four centralized q2-moments in the kinetic scheme"""
@@ -72,3 +80,10 @@ class InclusiveVcbCentralized(AbstractInclusiveVcb):
                            self.data.api4, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
                + self.data.api4 * nlo_cent_4(q_cut, mbkin, mckin))
         return cm4
+
+    def covariance_matrix(self, cuts, shifts, multi=1, decorr=None):
+        mat = cm.CovarianceMatrix(cuts, self.data.default, shifts,
+                                  scheme='kin', cent=True,
+                                  multi=multi, decorr=decorr
+                                  ).summed_covariance()
+        return mat

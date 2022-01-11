@@ -59,7 +59,6 @@ class CovarianceMatrix:
         cut = np.concatenate((np.array([1]), np.tile(self.cuts, len(self._func_list))))
         cov = np.zeros((self._full_dim, self._full_dim))
         block = np.zeros((self._dim, self._dim))
-        hqe_shift = self.hqe_pars * self._build_shift(par)
 
         for ii in range(len(cut)):
             for jj in range(ii, len(self._funcs)):
@@ -74,6 +73,7 @@ class CovarianceMatrix:
                         block[jj][ii] = block[ii][jj]
 
                     elif par in self.shifts:
+                        hqe_shift = self.hqe_pars * self._build_shift(par)
                         block[ii][jj] = ((self._funcs[ii](np.array([cut[ii]]), *self.hqe_pars) -
                                           self._funcs[ii](np.array([cut[ii]]), *hqe_shift)) *
                                          (self._funcs[jj](np.array([cut[jj]]), *self.hqe_pars) -
@@ -151,7 +151,7 @@ class CovarianceMatrix:
         elif parshift == 'mupi':
             shift = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1 + self.shifts[parshift]])
         else:
-            raise KeyError('This parameter is not included in the covariance matrix.')
+            raise KeyError(f'{parshift} is not included in the covariance matrix.')
         return np.array(shift)
 
     def _build_moments(self, obj: Any):
