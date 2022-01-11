@@ -1,10 +1,10 @@
 import numpy as np
 
-import theory_parameters as tpar
+import _parameters as tpar
 from moments import q2_moments_MS as q2mMS, q2_moments_kinetic as q2mKin, total_rates as tr
 import moments.central_moments_kinetic as cmk
 import moments.central_moments_MS as cmMS
-import full_nlo as fnlo
+import _full_nlo as fnlo
 
 
 # Class contains the moments in the kinetic scheme with NLO-correction. 

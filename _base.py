@@ -1,6 +1,6 @@
 import abc
 
-from theory_parameters import VcbData
+from _parameters import VcbData
 
 
 class AbstractInclusiveVcb(abc.ABC):

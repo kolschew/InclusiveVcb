@@ -9,6 +9,7 @@ class CovarianceMatrix:
 
     def __init__(self, q_cuts: np.array, hqe_pars: list, shifts: dict,
                  scheme: str, cent: bool, multi=1, decorr=None):
+
         """Calculates the covariance and correlation matrix for given shifts in the parameters
         of inclusive Vcb.
 
@@ -33,8 +34,8 @@ class CovarianceMatrix:
 
         # Initialize the q2 moments - if mus is provided also initiate a class with different mus.
         self._tp = self._instantiate_moments(self.scheme, self.cent)
-
         self._func_list, self._funcs = self._build_moments(self._tp())
+
         if 'mus' in self.shifts:
             _, self._funcs_shift = self._build_moments(self._tp(mus=self.shifts['mus']))
 

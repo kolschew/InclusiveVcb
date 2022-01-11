@@ -1,9 +1,9 @@
-from base import AbstractInclusiveVcb
+from _base import AbstractInclusiveVcb
 
 from moments.total_rates import total_rate_MS
 from moments.q2_moments_MS import *
 from moments.central_moments_MS import *
-from full_nlo import *
+from _full_nlo import *
 
 
 class InclusiveVcb(AbstractInclusiveVcb):

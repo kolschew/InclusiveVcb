@@ -16,7 +16,7 @@ Args:
 
 import numpy as np
 
-import nlo_moments as nlo
+import _nlo_moments as nlo
 from moments import q2_moments_kinetic as q2m, q2_moments_raw as q2raw
 
 ZZ = np.zeros(10)
