@@ -36,7 +36,7 @@ class VcbData:
     mu0: float = 2
 
     def __post_init__(self):
-        self.api4 = self._run_api(self.mus) / (4 * np.pi)
+        self.api4 = self._run_api(self.mus) / np.pi
         self.mcMS = self.mcMS_3 if self.mu0 == 3 else self.mcMS_2
         self.default = (self.mbkin, self.mckin, self.muG, self.sB, self.rE,
                         self.sqB, self.sE, self.rG, self.rhoD, self.mupi)
