@@ -32,7 +32,7 @@ class VcbData:
     mupi: float = 0.432375
 
     # Scale for a_s and m_c
-    mus: float = 4.565
+    mus: float = 4.546
     mu0: float = 2
 
     def __post_init__(self):
