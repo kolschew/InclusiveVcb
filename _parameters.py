@@ -16,9 +16,9 @@ class VcbData:
     muW: int = field(default=1, init=False)
 
     # Default masses in OS, MS and kinetic scheme
-    mbkin: float = 4.565
+    mbkin: float = 4.546
     mckin: float = 1.130
-    mcMS_3: float = 0.993
+    mcMS_3: float = 0.987
     mcMS_2: float = 1.099
 
     # Default values for the HQE parameters
@@ -38,7 +38,7 @@ class VcbData:
     def __post_init__(self):
         self.api4 = self._run_api(self.mus) / np.pi
         self.mcMS = self.mcMS_3 if self.mu0 == 3 else self.mcMS_2
-        self.default = (self.mbkin, self.mckin, self.muG, self.sB, self.rE,
+        self.default = (self.mbkin, self.mcMS, self.muG, self.sB, self.rE,
                         self.sqB, self.sE, self.rG, self.rhoD, self.mupi)
 
     def gamma_0(self, mb, vcb):
