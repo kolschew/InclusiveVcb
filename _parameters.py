@@ -40,6 +40,7 @@ class VcbData:
         self.mcMS = self.mcMS_3 if self.mu0 == 3 else self.mcMS_2
         self.default = (self.mbkin, self.mcMS, self.muG, self.sB, self.rE,
                         self.sqB, self.sE, self.rG, self.rhoD, self.mupi)
+        self.noHQE = (self.mbkin, self.mcMS, 0, 0, 0, 0, 0, 0, 0, 0)
 
     def gamma_0(self, mb, vcb):
         """Prefactor of the total rate.
