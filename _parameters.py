@@ -19,7 +19,7 @@ class VcbData:
     mbkin: float = 4.546
     mckin: float = 1.130
     mcMS_3: float = 0.987
-    mcMS_2: float = 1.099
+    mcMS_2: float = 1.093
 
     # Default values for the HQE parameters
     muG: float = 0.36156
