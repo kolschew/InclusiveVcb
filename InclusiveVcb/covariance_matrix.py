@@ -113,14 +113,14 @@ class CovarianceMatrix:
 
         if scheme == 'kin':
             if cent:
-                return inckin.InclusiveVcbCentralized
+                return inckin.CentralizedMomentsKin
             else:
-                return inckin.InclusiveVcb
+                return inckin.NormalizedMomentsKin
         elif scheme == 'MS':
             if cent:
-                return incms.InclusiveVcbCentralized
+                return incms.CentralizedMomentsMS
             else:
-                return incms.InclusiveVcb
+                return incms.NormalizedMomentsMS
         else:
             raise KeyError('Please choose a valid mass scheme.')
 
@@ -210,9 +210,3 @@ class CovarianceMatrix:
 
         decorr_mat[1:, 1:] = np.block([[decorr_block] * self.multi] * self.multi)
         return decorr_mat
-
-
-# cuts = np.array([3, 4])
-# kin_start = np.array([4.565, 1.13, 0.36156, -0.132, 0.019, -0.8, -0.072, -0.006, 0.145, 0.432375])
-# MS_start = np.array([4.565, 1.093, 0.36156, -0.132, 0.019, -0.8, -0.072, -0.006, 0.145, 0.432375])
-# shift = {'rhoD': 0.3, 'muG': 0.2, 'mus': 4.565/2}
