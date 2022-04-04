@@ -1,13 +1,13 @@
-from _base import AbstractInclusiveVcb
+from InclusiveVcb._base import AbstractInclusiveVcb
 
-from moments.total_rates import total_rate_MS
-from moments.q2_moments_MS import *
-from moments.central_moments_MS import *
-from _full_nlo import *
-import covariance_matrix as cm
+from InclusiveVcb.moments.total_rates import total_rate_MS
+from InclusiveVcb.moments.q2_moments_MS import *
+from InclusiveVcb.moments.central_moments_MS import *
+from InclusiveVcb._full_nlo import *
+import InclusiveVcb.covariance_matrix as cm
 
 
-class InclusiveVcb(AbstractInclusiveVcb):
+class InclusiveVcbNormalized(AbstractInclusiveVcb):
     """Total Rate and first four q2-moments in the MS-bar scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):

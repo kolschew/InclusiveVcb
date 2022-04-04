@@ -1,13 +1,14 @@
-from _base import AbstractInclusiveVcb
+from InclusiveVcb._base import AbstractInclusiveVcb
 
-from moments.total_rates import total_rate_kin
-from moments.q2_moments_kinetic import *
-from moments.central_moments_kinetic import *
-from _full_nlo import *
-import covariance_matrix as cm
+from InclusiveVcb.moments.total_rates import total_rate_kin
+from InclusiveVcb.moments.q2_moments_kinetic import *
+from InclusiveVcb.moments.central_moments_kinetic import *
+from InclusiveVcb._full_nlo import *
+
+import InclusiveVcb.covariance_matrix as cm
 
 
-class InclusiveVcb(AbstractInclusiveVcb):
+class InclusiveVcbNormalized(AbstractInclusiveVcb):
     """Total Rate and first four q2-moments in the kinetic scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):

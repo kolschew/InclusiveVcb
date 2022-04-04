@@ -1,6 +1,6 @@
 import abc
 
-from _parameters import VcbData
+from InclusiveVcb._parameters import VcbData
 
 
 class AbstractInclusiveVcb(abc.ABC):

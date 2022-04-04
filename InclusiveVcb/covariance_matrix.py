@@ -1,8 +1,8 @@
 import numpy as np
 from typing import Any, Union
 
-import inclusive_Vcb_MS as incms
-import inclusive_Vcb_kinetic as inckin
+import InclusiveVcb.inclusive_Vcb_MS as incms
+import InclusiveVcb.inclusive_Vcb_kinetic as inckin
 
 
 class CovarianceMatrix:
