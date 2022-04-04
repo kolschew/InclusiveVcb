@@ -1,0 +1,12 @@
+setuptools
+wheel
+
+./rundec-python.tar
+
+
+array_to_latex >= 0.82
+matplotlib >= 3.3.2
+mpmath >= 1.2.1
+numpy 
+scipy 
+ 
