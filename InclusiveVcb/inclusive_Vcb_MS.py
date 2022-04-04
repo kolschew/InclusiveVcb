@@ -8,7 +8,7 @@ import InclusiveVcb.covariance_matrix as cm
 
 
 class NormalizedMomentsMS(AbstractInclusiveVcb):
-    """Total Rate and first four q2-moments in the MS-bar scheme"""
+    """Contains the total Rate and first four normalized q2-moments in the MS-bar scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         tot_MS = (self.data.tauB / self.data.hbar * self.data.gamma_0(mbkin, Vcb) *
@@ -49,7 +49,7 @@ class NormalizedMomentsMS(AbstractInclusiveVcb):
 
 
 class CentralizedMomentsMS(AbstractInclusiveVcb):
-    """Total Rate and first four centralized q2-moments in the MS-bar scheme"""
+    """Contains the total Rate and first four centralized q2-moments in the MS-bar scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         tot_MS = (self.data.tauB / self.data.hbar * self.data.gamma_0(mbkin, Vcb) *
