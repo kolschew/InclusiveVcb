@@ -8,7 +8,7 @@ from InclusiveVcb._full_nlo import *
 import InclusiveVcb.covariance_matrix as cm
 
 
-class InclusiveVcbNormalized(AbstractInclusiveVcb):
+class NormalizedMomentsKin(AbstractInclusiveVcb):
     """Total Rate and first four q2-moments in the kinetic scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
@@ -49,7 +49,7 @@ class InclusiveVcbNormalized(AbstractInclusiveVcb):
         return mat
 
 
-class InclusiveVcbCentralized(AbstractInclusiveVcb):
+class CentralizedMomentsKin(AbstractInclusiveVcb):
     """Total Rate and first four centralized q2-moments in the kinetic scheme"""
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
