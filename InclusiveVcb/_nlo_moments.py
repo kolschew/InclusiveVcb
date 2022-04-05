@@ -1,11 +1,22 @@
 """
-Description:
-    Module contains the genuine NLO corrections to the lepton invariant mass moments.
-    The differential width is integrated with different powers in omega for the respective moment.
+Description
+-----------
+Module contains the genuine NLO corrections to the lepton invariant mass moments.
+The differential width is integrated with different powers in omega for the respective moment.
 
-Contains:
-    diff_sec: the differential width taken from arXiv:----
-    q2_nlo_0,...q2_nlo_4: genuine NLO correction for the rate and 1st - 4th q2-moment
+Methods
+-------
+diff_sec
+    The differential width, taken from: https://doi.org/10.1016/0550-3213(89)90108-9
+q2_nlo_0,...q2_nlo_4
+    Genuine NLO correction for the rate and 1st - 4th q2-moment
+
+Notes
+-----
+The polylog is only contained in the mpmath module and must be vectorized before usage. 
+A cut is employed to stabilize the integration of the endpoint. For integration a fixed
+gaussian quadrature is used to enhance the speed of the calculation. The number of nodes
+was enhanced to KNOTS to meet the precision of adaptive integration methods.
 """
 
 import numpy as np
