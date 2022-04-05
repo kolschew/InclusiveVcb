@@ -17,3 +17,6 @@ To install package and development dependencies, run
 pip3 install -r requirements.txt
 ```
 This installs all the dependencies needed for the package.
+
+## Documentation
+For a detailed documentation see the jupyter notebook 'documentation'. For information about the different methods and their inputs, please refer to their docs. 
