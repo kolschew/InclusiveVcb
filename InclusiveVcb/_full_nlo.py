@@ -1,17 +1,25 @@
 """
-Description:
+Description
+-----------
     Module contains the full NLO contributions to the moments.
     Since the NLO corrections from the scheme change are incorporated in the q2moment-files,
     the expressions were reexpanded in a_s analytically.
 
-Content:
-    nlo_1,..., nlo_4: NLO contributions for the non-centralized moments
-    nlo_cent_1,..., nlo_cent_4: NLO contributions for the centralized moments
+Methods
+-------
+    nlo_1,..., nlo_4
+        NLO contributions for the non-centralized moments
+    nlo_cent_1,..., nlo_cent_4
+        NLO contributions for the centralized moments
 
-Args:
-    q_cut (array): cuts for the lepton invariant mass q2
-    mbkin (float): mass of the b-quark in the kinetic scheme
-    mc (flaot): mass of the c-quark mass in either kinetic or MS scheme
+Args
+----
+    q_cut : numpy.array 
+        Cuts for the lepton invariant mass q2
+    mbkin : float
+        Mass of the bottom quark in the kinetic scheme
+    mc : float
+        Mass of the charm quark mass in either the kinetic or MS-bar scheme
 """
 
 import numpy as np
