@@ -24,6 +24,8 @@ class NormalizedMomentsMS(AbstractInclusiveVcb):
 
     Methods
     -------
+    data : None
+        Holds all parameters for inclusive Vcb - see its own doc.
     total_rate : (Vcb, mbkin, mcMS, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
         Total rate up to a_s^3 and 1/mb^4
     q2_moment_i : (q_cut, mbkin, mcMS, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
@@ -292,6 +294,8 @@ class CentralizedMomentsMS(AbstractInclusiveVcb):
 
     Methods
     -------
+    data : None
+        Holds all parameters for inclusive Vcb - see its own doc.
     total_rate : (Vcb, mbkin, mcMS, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
         Total rate up to a_s^3 and 1/mb^4
     q2_moment_i : (q_cut, mbkin, mcMS, muG, sB, rE, sqB, sE, rG, rhoD, mupi)

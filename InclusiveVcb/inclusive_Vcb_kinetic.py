@@ -22,6 +22,8 @@ class NormalizedMomentsKin(AbstractInclusiveVcb):
 
     Methods
     -------
+    data : None
+        Holds all parameters for inclusive Vcb - see its own doc.
     total_rate : (Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
         Total rate up to a_s^3 and 1/mb^4
     q2_moment_i : (q_cut, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
@@ -271,24 +273,26 @@ class NormalizedMomentsKin(AbstractInclusiveVcb):
 class CentralizedMomentsKin(AbstractInclusiveVcb):
     """Total Rate and first four centralized q2-moments in the kinetic scheme.
 
-        Attributes
-        ----------
-        mus : float
-            Scale for the strong coupling a_s (default is 4.546)
-        mckin : float
-            Mass of the charm quark in the kinetic scheme (default is 1.130)
-        mbkin : float
-            Mass of the bottom quark in the kinetic scheme (default is 4.546)
+    Attributes
+    ----------
+    mus : float
+        Scale for the strong coupling a_s (default is 4.546)
+    mckin : float
+        Mass of the charm quark in the kinetic scheme (default is 1.130)
+    mbkin : float
+        Mass of the bottom quark in the kinetic scheme (default is 4.546)
 
-        Methods
-        -------
-        total_rate : (Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
-            Total rate up to a_s^3 and 1/mb^4
-        q2_moment_i : (q_cut, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
-            The i-th centralized q2-moment up to a_s and 1/mb^4. First argument must be provided as np.array.
-        covariance_matrix : (cuts, shifts, multi=1, decorr=None)
-            Covariance matrix of the rate and moments for shifts in the given parameters.
-        """
+    Methods
+    -------
+    data : None
+        Holds all parameters for inclusive Vcb - see its own doc.
+    total_rate : (Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
+        Total rate up to a_s^3 and 1/mb^4
+    q2_moment_i : (q_cut, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi)
+        The i-th centralized q2-moment up to a_s and 1/mb^4. First argument must be provided as np.array.
+    covariance_matrix : (cuts, shifts, multi=1, decorr=None)
+        Covariance matrix of the rate and moments for shifts in the given parameters.
+    """
 
     def total_rate(self, Vcb, mbkin, mckin, muG, sB, rE, sqB, sE, rG, rhoD, mupi):
         """
