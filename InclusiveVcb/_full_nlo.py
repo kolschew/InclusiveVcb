@@ -12,8 +12,8 @@ nlo_1,..., nlo_4
 nlo_cent_1,..., nlo_cent_4
     NLO contributions for the centralized moments
 
-Paramters
----------
+Parameters
+----------
 q_cut : numpy.array 
     Cuts for the lepton invariant mass q2
 mbkin : float

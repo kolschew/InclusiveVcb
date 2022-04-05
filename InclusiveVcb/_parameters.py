@@ -45,9 +45,17 @@ class VcbData:
     def gamma_0(self, mb, vcb):
         """Prefactor of the total rate.
 
-        Args:
-            mb: mass of the b-quark in respective scheme
-            vcb: value for CKM-element V_cb
+        Parameters
+        ----------
+        mb : float
+            Mass of the b-quark in respective scheme
+        vcb : float
+            Value for CKM-element V_cb
+
+        Return
+        ------
+        float
+            Value for the prefactor Gamma_0 with electroweak correction.
         """
 
         res = self.a_ew * self.g_f ** 2 * vcb ** 2 * mb ** 5 / (192 * np.pi ** 3)
@@ -57,16 +65,23 @@ class VcbData:
     def _run_api(scale):
         """Runs a_s down to the desired scale at 4 loops with n_f = 4 by using rundec.
 
-        Args:
-            scale: scale at which a_s is evaluated
+        Parameters
+        ----------
+        scale : float
+            Scale to which a_s is run and evaluated
+
+        Return
+        ------
+        float
+            Value of the strong coupling constant at given scale.
         """
 
-        # Define parameters for running a_s #
+        # Define parameters for running a_s
         _asmZ = 0.1179
         _mZ = 91.1876
         _mbMS = 4.198
 
-        # Initialize rundec and run a_s. n_f = 4 #
+        # Initialize rundec and run a_s. n_f = 4
         crd = rundec.CRunDec()
         as_res = (crd.AlphasExact(crd.DecAsDownSI(crd.AlphasExact(_asmZ, _mZ, 2 * _mbMS, 5, 4),
                                                   _mbMS, 2 * _mbMS, 4, 4), 2 * _mbMS, scale, 4, 4))
