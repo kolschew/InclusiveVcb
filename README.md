@@ -16,5 +16,4 @@ To install package and development dependencies, run
 ```
 pip3 install -r requirements.txt
 ```
-This installs all the dependencies needed for the package. If you introduce new dependencies, please add them to `requirements.txt`.
- 
+This installs all the dependencies needed for the package.
