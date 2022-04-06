@@ -1,5 +1,5 @@
 # InclusiveVcb
-Code with the theory prediction for Vcb from q2 normalized and central moments
+Code with the theory prediction for Vcb from q2 normalized and centralized moments
 
 ## Installation
 To install the package run
